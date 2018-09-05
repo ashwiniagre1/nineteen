@@ -2,11 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule} from "@angular/forms";
 import {
   AmexioFormsModule, AmexioLayoutModule, AmexioNavModule, AmexioWidgetModule,  CommonDataService,
   DeviceQueryService,IconLoaderService,AmexioChartsModule
-} from 'amexio-ng-extensions';
+} from "amexio-ng-extensions";
 
 const APP_ROUTE: Routes = [
   {path:'',loadChildren:'./home/home.module#HomeModule'}
@@ -22,7 +22,8 @@ const APP_ROUTE: Routes = [
     AmexioLayoutModule,
     FormsModule,AmexioNavModule,
     AmexioLayoutModule,AmexioFormsModule,
-    RouterModule.forRoot(APP_ROUTE),
+    RouterModule.forRoot(APP_ROUTE, { useHash: true })
+
   ],
   providers: [DeviceQueryService,CommonDataService,IconLoaderService],
   bootstrap: [AppComponent]

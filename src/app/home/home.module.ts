@@ -1,14 +1,19 @@
+/**
+ * Created by Sagar Jadhav.
+ */
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {FormsModule} from '@angular/forms';
-import {HomeComponent} from './home.component';
-import {CommonModule} from '@angular/common';
-import {AmexioWidgetModule} from 'amexio-ng-extensions';
+import {FormsModule} from "@angular/forms";
+import {HomeComponent} from "./home.component";
+import {CommonModule} from "@angular/common";
+import {TopNavBarComponent} from "../layout/topnavbar.component";
+import {AmexioWidgetModule} from "amexio-ng-extensions";
+
 const routes: Routes = [
   { path: '', component:HomeComponent,
     children: [
           	{
-     	path: 'nineteen/core', loadChildren: './../nineteen/core/core.module#CoreModule'
+     	path: 'core/loginui', loadChildren: './../pages/nineteen/core/loginui/loginui.module#LoginuiModule'
      	},	
 	    ]
   }
@@ -23,7 +28,8 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
   declarations: [
-    HomeComponent
+    HomeComponent,
+    TopNavBarComponent
   ]
 })
 export class HomeModule {
